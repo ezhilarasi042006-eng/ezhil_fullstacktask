@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Application Form</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+            background: linear-gradient(
+                135deg,
+                #eef2ff,
+                #f5f3ff
+            );
+
+            padding: 40px 20px;
+        }
+
+
+        /* MAIN CONTAINER */
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* HEADER */
+
+        .header {
+            background: linear-gradient(
+                135deg,
+                #4f46e5,
+                #7c3aed
+            );
+
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+
+        .header .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+
+        .header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+
+        .header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+
+        /* FORM */
+
+        .form-container {
+            padding: 35px;
+        }
+
+
+        .section-title {
+            color: #4f46e5;
+            font-size: 21px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eee;
+        }
+
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .input-group label {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+
+        .required {
+            color: red;
+        }
+
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+
+            font-size: 15px;
+            outline: none;
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #4f46e5;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(79, 70, 229, 0.1);
+        }
+
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+
+        /* GENDER */
+
+        .gender-options {
+            display: flex;
+            gap: 25px;
+            margin-top: 8px;
+        }
+
+
+        .gender-options label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+
+        .gender-options input {
+            width: auto;
+        }
+
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+
+        button {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+        .submit-btn {
+            background: #4f46e5;
+            color: white;
+        }
+
+
+        .submit-btn:hover {
+            background: #4338ca;
+        }
+
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+
+        /* SUCCESS MESSAGE */
+
+        #successMessage {
+            display: none;
+
+            background: #dcfce7;
+            color: #166534;
+
+            padding: 15px;
+            border-radius: 8px;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            font-weight: bold;
+        }
+
+
+        /* FOOTER */
+
+        .footer {
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+            padding: 20px;
+
+            border-top: 1px solid #eee;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 700px) {
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: span 1;
+            }
+
+            .form-container {
+                padding: 25px 20px;
+            }
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="icon">
+            🎓
+        </div>
+
+        <h1>
+            Student Application Form
+        </h1>
+
+        <p>
+            Please fill in all the required details
+        </p>
+
+    </div>
+
+
+    <!-- FORM CONTAINER -->
+
+    <div class="form-container">
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        <div id="successMessage">
+            ✅ Application submitted successfully!
+        </div>
+
+
+        <form id="studentForm">
+
+
+            <!-- PERSONAL DETAILS -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    👤 Personal Information
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Full Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your full name"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Date of Birth
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dob"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Gender
+                            <span class="required">*</span>
+                        </label>
+
+                        <div class="gender-options">
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Male"
+                                    required>
+                                Male
+                            </label>
+
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Female">
+                                Female
+                            </label>
+
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Other">
+                                Other
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Blood Group
+                        </label>
+
+                        <select id="blood">
+
+                            <option value="">
+                                Select Blood Group
+                            </option>
+
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT DETAILS -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    📞 Contact Information
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Email Address
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="example@gmail.com"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Phone Number
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter phone number"
+                            pattern="[0-9]{10}"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Parent / Guardian Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="parent"
+                            placeholder="Enter parent name"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Parent / Guardian Phone
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="parentPhone"
+                            placeholder="Enter phone number"
+                            pattern="[0-9]{10}"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACADEMIC DETAILS -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    🎓 Academic Information
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Course
+                            <span class="required">*</span>
+                        </label>
+
+                        <select id="course" required>
+
+                            <option value="">
+                                Select Course
+                            </option>
+
+                            <option>
+                                B.Tech
+                            </option>
+
+                            <option>
+                                B.E
+                            </option>
+
+                            <option>
+                                B.Sc
+                            </option>
+
+                            <option>
+                                BCA
+                            </option>
+
+                            <option>
+                                MCA
+                            </option>
+
+                            <option>
+                                M.Tech
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Department
+                            <span class="required">*</span>
+                        </label>
+
+                        <select id="department" required>
+
+                            <option value="">
+                                Select Department
+                            </option>
+
+                            <option>
+                                Artificial Intelligence and Data Science
+                            </option>
+
+                            <option>
+                                Computer Science Engineering
+                            </option>
+
+                            <option>
+                                Information Technology
+                            </option>
+
+                            <option>
+                                Electronics and Communication
+                            </option>
+
+                            <option>
+                                Mechanical Engineering
+                            </option>
+
+                            <option>
+                                Electrical and Electronics
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            12th / Diploma Percentage
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="percentage"
+                            placeholder="Enter percentage"
+                            min="0"
+                            max="100"
+                            step="0.01"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Year of Admission
+                        </label>
+
+                        <select id="admissionYear">
+
+                            <option>2026</option>
+                            <option>2025</option>
+                            <option>2024</option>
+                            <option>2023</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADDRESS -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    🏠 Address
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="input-group full-width">
+
+                        <label>
+                            Address
+                            <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="address"
+                            placeholder="Enter your complete address"
+                            required></textarea>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            City
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="Enter city"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            State
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="state"
+                            placeholder="Enter state"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            PIN Code
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pincode"
+                            placeholder="Enter PIN code"
+                            pattern="[0-9]{6}"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCUMENTS -->
+
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    📄 Documents
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Student Photo
+                        </label>
+
+                        <input
+                            type="file"
+                            accept="image/*">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Mark Sheet
+                        </label>
+
+                        <input
+                            type="file"
+                            accept=".pdf,.jpg,.jpeg,.png">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+
+                    ✅ Submit Application
+
+                </button>
+
+
+                <button
+                    type="reset"
+                    class="reset-btn">
+
+                    🔄 Reset Form
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026 Student Application System
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+    document
+        .getElementById("studentForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const phone =
+                document.getElementById("phone").value;
+
+
+            const parentPhone =
+                document.getElementById("parentPhone").value;
+
+
+            const pincode =
+                document.getElementById("pincode").value;
+
+
+            /* PHONE VALIDATION */
+
+            if (!/^[0-9]{10}$/.test(phone)) {
+
+                alert(
+                    "Please enter a valid 10-digit phone number."
+                );
+
+                return;
+
+            }
+
+
+            if (!/^[0-9]{10}$/.test(parentPhone)) {
+
+                alert(
+                    "Please enter a valid parent phone number."
+                );
+
+                return;
+
+            }
+
+
+            /* PIN CODE VALIDATION */
+
+            if (!/^[0-9]{6}$/.test(pincode)) {
+
+                alert(
+                    "Please enter a valid 6-digit PIN code."
+                );
+
+                return;
+
+            }
+
+
+            /* SUCCESS */
+
+            document.getElementById(
+                "successMessage"
+            ).style.display = "block";
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+
+            /* CLEAR FORM */
+
+            this.reset();
+
+        });
+
+</script>
+
+
+</body>
+
+</html>

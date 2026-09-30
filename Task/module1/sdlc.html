@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SDLC with AI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        /* Main */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* Cards */
+        .stages {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            border-top: 5px solid #4f46e5;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .ai {
+            margin-top: 15px;
+            padding: 12px;
+            background: #f0edff;
+            border-radius: 10px;
+            color: #4c1d95;
+        }
+
+        .ai strong {
+            color: #7c3aed;
+        }
+
+        /* Flow */
+        .flow {
+            margin-top: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .flow h2 {
+            color: #4f46e5;
+            margin-bottom: 25px;
+        }
+
+        .flow-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .step {
+            background: #4f46e5;
+            color: white;
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 25px;
+            color: #7c3aed;
+        }
+
+        /* Button */
+        .button-area {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        button {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #372fc4;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .stages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .stages {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>🤖 SDLC with AI</h1>
+        <p>Artificial Intelligence in the Software Development Life Cycle</p>
+    </header>
+
+
+    <div class="container">
+
+        <!-- Introduction -->
+        <div class="intro">
+            <h2>Software Development Life Cycle</h2>
+
+            <p>
+                AI can assist developers throughout the software development
+                process, from planning and requirements to testing and maintenance.
+            </p>
+        </div>
+
+
+        <!-- SDLC Stages -->
+        <div class="stages">
+
+            <!-- Planning -->
+            <div class="card">
+                <div class="icon">📋</div>
+
+                <h3>1. Planning</h3>
+
+                <p>
+                    The project objectives, resources, budget and schedule
+                    are identified.
+                </p>
+
+                <div class="ai">
+                    <strong>🤖 AI:</strong>
+                    AI can help estimate project time, resources and risks.
+                </div>
+            </div>
+
+
+            <!-- Requirements -->
+            <div class="card">
+                <div class="icon">📝</div>
+
+                <h3>2. Requirement Analysis</h3>
+
+                <p>
+                    User requirements are collected and analyzed to
+                    understand what the system should do.
+                </p>
+
+                <div class="ai">
+                    <strong>🤖 AI:</strong>
+                    AI can analyze requirements and identify missing information.
+                </div>
+            </div>
+
+
+            <!-- Design -->
+            <div class="card">
+                <div class="icon">🎨</div>
+
+                <h3>3. System Design</h3>
+
+                <p>
+                    The architecture, database, user interface and
+                    system components are designed.
+                </p>
+
+                <div class="ai">
+                    <strong>🤖 AI:</strong>
+                    AI can suggest system architectures, database structures
+                    and UI designs.
+                </div>
+            </div>
+
+
+            <!-- Development -->
+            <div class="card">
+                <div class="icon">💻</div>
+
+                <h3>4. Development</h3>
+
+                <p>
+                    Developers write the source code and build the
+                    software application.
+                </p>
+
+                <div class="ai">
+                    <strong>🤖 AI:</strong>
+                    AI coding tools can generate code, explain code and
+                    suggest improvements.
+                </div>
+            </div>
+
+
+            <!-- Testing -->
+            <div class="card">
+                <div class="icon">🧪</div>
+
+                <h3>5. Testing</h3>
+
+                <p>
+                    The software is tested to identify bugs and verify
+                    that requirements are satisfied.
+                </p>
+
+                <div class="ai">
+                    <strong>🤖 AI:</strong>
+                    AI can generate test cases, detect bugs and automate testing.
+                </div>
+            </div>
+
+
+            <!-- Deployment -->
+            <div class="card">
+                <div class="icon">🚀</div>
+
+                <h3>6. Deployment</h3>
+
+                <p>
+                    The completed software is released and made available
+                    to users.
+                </p>
+
+                <div class="ai">
+                    <strong>🤖 AI:</strong>
+                    AI can assist with deployment automation and monitoring.
+                </div>
+            </div>
+
+
+            <!-- Maintenance -->
+            <div class="card">
+                <div class="icon">🔧</div>
+
+                <h3>7. Maintenance</h3>
+
+                <p>
+                    The software is monitored, updated and improved
+                    after deployment.
+                </p>
+
+                <div class="ai">
+                    <strong>🤖 AI:</strong>
+                    AI can analyze logs, predict failures and suggest fixes.
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Flow -->
+        <div class="flow">
+
+            <h2>🔄 SDLC with AI Flow</h2>
+
+            <div class="flow-box">
+
+                <div class="step">Planning</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Requirements</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Design</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Development</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Testing</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Deployment</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Maintenance</div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Button -->
+        <div class="button-area">
+
+            <button onclick="showMessage()">
+                🤖 Learn About AI in SDLC
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 SDLC with AI | Student Project</p>
+    </footer>
+
+
+    <script>
+
+        function showMessage() {
+
+            alert(
+                "AI can assist in every stage of SDLC — from planning and requirements to testing, deployment and maintenance!"
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
