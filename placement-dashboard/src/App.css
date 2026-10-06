@@ -1,0 +1,315 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #202a44;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 7px;
+  background: #5146e5;
+  color: white;
+  padding: 11px 15px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #b6b5c9;
+  cursor: default;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 245px;
+  flex-shrink: 0;
+  background: #171d36;
+  color: white;
+  padding: 28px 17px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin: 0 10px 40px;
+  font-size: 23px;
+}
+
+.sidebar h2 span {
+  color: #a9a3ff;
+}
+
+.menu-label {
+  color: #9ba4c1;
+  font-size: 11px;
+  margin-left: 12px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: transparent;
+  text-align: left;
+  margin: 4px 0;
+  color: #c6cbe0;
+}
+
+.nav.active, .nav:hover {
+  background: #5146e5;
+  color: white;
+}
+
+.side-bottom {
+  margin-top: auto;
+  color: #aeb5d0;
+  font-size: 12px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 25px 32px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.topbar h3, .topbar p {
+  margin: 4px 0;
+}
+
+.topbar p, .job-info p {
+  color: #858ba0;
+  font-size: 13px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar, .company-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: #e8e6ff;
+  color: #5146e5;
+  font-weight: bold;
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(110deg, #5146e5, #8178f5);
+  color: white;
+  border-radius: 15px;
+  padding: 28px;
+}
+
+.welcome h1 {
+  margin: 0 0 12px;
+}
+
+.welcome p {
+  line-height: 1.6;
+}
+
+.welcome button {
+  background: white;
+  color: #5146e5;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.welcome-icon {
+  font-size: 65px;
+  padding: 15px;
+}
+
+.section-title {
+  margin: 28px 0 16px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.stat, .panel {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 3px 15px #202a440a;
+}
+
+.stat span, .stat small {
+  color: #858ba0;
+  font-size: 13px;
+}
+
+.stat h2 {
+  font-size: 30px;
+  margin: 12px 0;
+  color: #5146e5;
+}
+
+.panel {
+  margin-top: 24px;
+}
+
+.panel h2, .panel h3 {
+  margin-top: 0;
+}
+
+.job-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #edf0f6;
+  padding: 17px 0;
+}
+
+.job-info {
+  flex: 1;
+}
+
+.job-info p {
+  margin-bottom: 0;
+}
+
+.outline {
+  background: white;
+  color: #5146e5;
+  border: 1px solid #d9d6ff;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #dfe3ee;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.search-box input, .profile input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+.status {
+  color: #16845c;
+  background: #e3f7ed;
+  padding: 7px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.profile label {
+  display: block;
+  margin: 15px 0 8px;
+}
+
+.profile input {
+  display: block;
+  border: 1px solid #dfe3ee;
+  border-radius: 7px;
+  margin-bottom: 15px;
+  padding: 12px;
+}
+
+footer {
+  text-align: center;
+  color: #9298aa;
+  font-size: 12px;
+  margin-top: 35px;
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    width: 190px;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .sidebar h2 {
+    margin: 0 0 15px;
+  }
+
+  .sidebar .nav {
+    width: 100%;
+  }
+
+  .side-bottom {
+    display: none;
+  }
+
+  .main {
+    padding: 15px;
+  }
+
+  .welcome {
+    padding: 20px;
+  }
+
+  .welcome-icon {
+    display: none;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .stat, .panel {
+    padding: 15px;
+  }
+
+  .user span {
+    display: none;
+  }
+}
